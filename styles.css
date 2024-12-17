@@ -1,0 +1,467 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI';
+}
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 100px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .logo {
+    color: #ffffff;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+/* Estilos generales */
+.container {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav ul {
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    list-style: none;
+    display: inline-block; /* Ajustado para ser mejor en pantallas pequeñas */
+    padding: 15px 20px; /* Reduje el padding para pantallas pequeñas */
+    margin: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #ffffff;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    transition: color 0.4s;
+}
+
+nav ul li::after {
+    content: '';
+    background: #ffffff;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: 0;
+}
+
+nav ul li:hover {
+    color: #069be0;
+}
+
+nav ul li:hover::after {
+    top: 50%;
+    opacity: 1;
+}
+
+.showcase {
+    position: absolute;
+    right: 0;
+    width: 100%;
+    min-height: 100vh;
+    padding: 50px; /* Reduzco el padding en pantallas pequeñas */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #111;
+    transition: 0.5s;
+    z-index: 2;
+}
+
+/* Media Query para pantallas menores a 768px */
+@media (max-width: 768px) {
+    nav ul {
+        display: flex;
+        flex-direction: column; /* Pone los elementos en una columna */
+        align-items: center;
+    }
+
+    nav ul li {
+        display: block; /* Elementos uno debajo del otro */
+        padding: 10px 15px;
+        font-size: 16px; /* Tamaño de letra más pequeño */
+    }
+
+    .showcase {
+        flex-direction: column; /* Acomoda el contenido en columnas */
+        text-align: center;
+        padding: 20px; /* Menos espacio alrededor */
+    }
+}
+
+/* Media Query para pantallas menores a 480px (móviles) */
+@media (max-width: 480px) {
+    nav ul li {
+        padding: 8px 10px;
+        font-size: 14px; /* Ajusta tamaño de letra */
+    }
+
+    .showcase {
+        padding: 10px;
+    }
+}
+
+
+.showcase.active {
+    right: 300px;
+}
+
+.showcase video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #156275;
+    mix-blend-mode: overlay;
+}
+/* Estilos generales */
+.text {
+    position: relative;
+    z-index: 10;
+}
+
+.text h2 {
+    font-size: 3em;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1em;
+    text-transform: uppercase;
+}
+
+.text h3 {
+    font-size: 5em;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1em;
+    text-transform: uppercase;
+}
+
+.text p {
+    font-size: 1.1em;
+    color: #fff;
+    margin: 20px 0;
+    font-weight: 400;
+    max-width: 700px;
+}
+
+.text a {
+    display: inline-block;
+    font-size: 1em;
+    background: #fff;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 10px;
+    color: #111;
+    letter-spacing: 2px;
+    transition: 0.2s;
+}
+
+.text a:hover {
+    letter-spacing: 6px;
+}
+
+/* Media Query para pantallas menores a 768px (tablets) */
+@media (max-width: 768px) {
+    .text h2 {
+        font-size: 2.5em; /* Reducir tamaño de letra */
+    }
+
+    .text h3 {
+        font-size: 3.5em; /* Reducir tamaño de letra */
+    }
+
+    .text p {
+        font-size: 1em; /* Ajustar tamaño de texto */
+        margin: 15px 0;
+    }
+
+    .text a {
+        font-size: 0.9em; /* Botón más pequeño */
+        padding: 8px 20px;
+    }
+}
+
+/* Media Query para pantallas menores a 480px (móviles) */
+@media (max-width: 480px) {
+    .text h2 {
+        font-size: 2em; /* Aún más pequeño en móviles */
+    }
+
+    .text h3 {
+        font-size: 2.5em; /* Encabezado más pequeño */
+    }
+
+    .text p {
+        font-size: 0.9em; /* Texto más pequeño */
+        margin: 10px 0;
+    }
+
+    .text a {
+        font-size: 0.8em; /* Botón pequeño */
+        padding: 8px 15px; /* Menor espacio */
+        letter-spacing: 1px; /* Reduzco el espaciado */
+    }
+
+    .text a:hover {
+        letter-spacing: 3px; /* Menor efecto hover */
+    }
+}
+
+
+.social {
+    position: absolute;
+    z-index: 10;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.social li {
+    list-style: none;
+}
+
+.social li a {
+    display: inline-block;
+    margin-right: 20px;
+    filter: invert(1);
+    transform: scale(0.5);
+    transition: 0.5s;
+}
+
+.social li a:hover {
+    transform: scale(0.5) translateY(-15px);
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu ul {
+    position: relative;
+}
+
+.menu ul li {
+    list-style: none;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    font-size: 24px;
+    color: #111;
+}
+
+.menu ul li a:hover {
+    color: #03a9f4;
+}
+
+@media (max-width: 991px) {
+
+    .showcase,
+    .showcase header {
+        padding: 40px;
+    }
+
+    .text h2 {
+        font-size: 3em;
+    }
+
+    .text h3 {
+        font-size: 2em;
+    }
+}
+.back-button {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #ffb6c1;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #ff7a8a;
+}
+
+/* Archivo: styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff8f0;
+    color: #333;
+    text-align: center;
+}
+
+/* Afecta solo al contenedor de la galería */
+.gallery-section header {
+    background-color: #ffb6c1;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-section header h1 {
+    font-size: 2.5em;
+    margin: 0;
+    color: #fff;
+}
+
+.gallery-section header p {
+    font-size: 1.2em;
+    color: #ffe4e1;
+}
+
+.gallery-section .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.gallery-section .gallery-item {
+    background-color: #fff;
+    border: 2px solid #ffb6c1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-section .gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-section .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.gallery-section .gallery-item p {
+    margin: 0;
+    padding: 10px;
+    background-color: #ffe4e1;
+    color: #333;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+a {
+    text-decoration: none; /* Elimina el subrayado */
+    color: #ffb6c1; /* Cambia el color del texto */
+    font-weight: bold; /* Hace el texto más grueso */
+    transition: color 0.3s ease; /* Transición suave para cambios de color */
+}
+
+a:hover {
+    color: #ff7a8a; /* Color al pasar el mouse */
+}
+
+a:visited {
+    color: #ffa6b9; /* Color de los enlaces ya visitados */
+}
+
+a:active {
+    color: #ff4c5b; /* Color mientras se hace clic */
+}
+
+/* Contenedor principal */
+.razones1 {
+    display: flex; /* Centrar el contenido */
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh; /* Ocupar toda la pantalla */
+    background-color: #ffe4e1; /* Fondo romántico */
+    padding: 20px; /* Espaciado interno */
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.1); /* Efecto de profundidad */
+}
+
+/* Sección específica */
+.razonesamor {
+    background: #ffb6c1; /* Fondo para la sección */
+    border-radius: 500px; /* Bordes redondeados */
+    padding: 30px; /* Espaciado interno */
+    max-width: 600px; /* Tamaño máximo */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra externa */
+    text-align: center; /* Centrar el texto */
+}
+
+/* Título */
+.cuales {
+    font-family: 'Georgia', serif; /* Fuente elegante */
+    font-size: 2em; /* Tamaño del texto */
+    color: #fff; /* Color del texto */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3); /* Sombra en el texto */
+}
+
+/* Contenedor principal */
+.contenedor {
+    display: flex; /* Flexbox para alinear las columnas */
+    justify-content: space-between; /* Espacio entre las columnas */
+    padding: 20px;
+}
+
+/* Columnas (izquierda y derecha) */
+.column {
+    display: flex;
+    flex-direction: column; /* Apilar contenedores verticalmente */
+    gap: 15px; /* Espacio entre contenedores */
+    width: 45%; /* Cada columna ocupa un 45% del ancho */
+}
+
+/* Contenedores individuales */
+.box {
+    background-color: #ffb6c1; /* Color de fondo */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    text-align: center; /* Centrar texto */
+    font-size: 1.2em; /* Tamaño del texto */
+    color: #fff; /* Color del texto */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
+    transition: transform 0.3s ease; /* Efecto de hover */
+}
+
+/* Efecto al pasar el mouse */
+.box:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+}
